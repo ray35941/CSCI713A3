@@ -54,8 +54,7 @@ class StudentServiceTest {
     // - Utils methods
     @Test
     void checkName_shouldReturnFalseForNull() {
-        // Valid test, but shows method name is misleading:
-        // "checkName" suggests thorough validation, but does almost nothing
+        
         assertFalse(Utils.checkName(null));
     }
 
@@ -66,24 +65,19 @@ class StudentServiceTest {
 
     @Test
     void checkName_shouldReturnTrueForWhitespace_only() {
-        // This exposes a code smell:
-        // Method returns TRUE even though whitespace-only name is invalid.
-        // Shows logic is overly simplistic and misleading.
+        
         assertTrue(Utils.checkName("   "));
     }
 
     @Test
     void checkName_containsDuplicateLogic_smell() {
-        // The logic: "if (condition) return true; else return false"
-        // is duplicated and unnecessary, so we test behavior
-        // but also highlight the code smell in comments.
+     
         assertTrue(Utils.checkName("Alice"));
     }
 
     @Test
     void checkName_nameIsMisleading_smell() {
-        // The method does NOT "check" name—it's just a length > 0 check.
-        // This test demonstrates that invalid names pass.
+       
         assertTrue(Utils.checkName("123"));   // probably not a real name
         assertTrue(Utils.checkName("@@@"));   // invalid name still true
     } 
@@ -99,7 +93,6 @@ class StudentServiceTest {
 
     @Test
     void isValidAge_shouldReturnTrueForVeryLargeAge_BugExpected() {
-        // Bug: method currently returns true for invalid ages such as 150
         assertTrue(Utils.isValidAge(150));
     }
 }
