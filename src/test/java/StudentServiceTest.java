@@ -29,6 +29,16 @@ class StudentServiceTest {
 
     // Intentionally leave out tests for:
     // - removeStudentByName
+    @Test
+    void removeStudentByName_shouldThrowConcurrentModificationException() {
+        StudentService service = new StudentService();
+        service.addStudent(new Student("Alice"));
+        service.addStudent(new Student("Bob"));
+
+        assertThrows(ConcurrentModificationException.class, () -> {
+            service.removeStudentByName("Alice");
+        });
+    }
     // - behavior with empty student list
     // - Utils methods
 }
