@@ -63,5 +63,20 @@ class StudentServiceTest {
     void checkName_shouldReturnFalseForNull() {
         assertFalse(StudentService.checkName(null));
     }
+     @Test
+    void isValidAge_shouldReturnFalseForNegativeAge() {
+        assertFalse(StudentService.isValidAge(-1));
+    }
+
+    @Test
+    void isValidAge_shouldReturnTrueForNormalAge() {
+        assertTrue(StudentService.isValidAge(20));
+    }
+
+    @Test
+    void isValidAge_shouldReturnTrueForVeryLargeAge_BugExpected() {
+        // Bug: method currently returns true for invalid ages such as 150
+        assertTrue(StudentService.isValidAge(150));
+    }
     
 }
