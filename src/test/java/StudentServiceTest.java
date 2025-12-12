@@ -71,16 +71,11 @@ class StudentServiceTest {
 
     @Test
     void checkName_containsDuplicateLogic_smell() {
-        // The logic: "if (condition) return true; else return false"
-        // is duplicated and unnecessary, so we test behavior
-        // but also highlight the code smell in comments.
         assertTrue(NameUtil.checkName("Alice"));
     }
 
     @Test
     void checkName_nameIsMisleading_smell() {
-        // The method does NOT "check" name—it's just a length > 0 check.
-        // This test demonstrates that invalid names pass.
         assertTrue(NameUtil.checkName("123"));   // probably not a real name
         assertTrue(NameUtil.checkName("@@@"));   // invalid name still true
     } 
