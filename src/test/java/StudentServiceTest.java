@@ -40,5 +40,13 @@ class StudentServiceTest {
         });
     }
     // - behavior with empty student list
+    @Test
+    void getTopStudent_shouldThrowExceptionWhenListIsEmpty() {
+        StudentService service = new StudentService(); // students list is empty
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            service.getTopStudent();
+        });
+    }
     // - Utils methods
 }
