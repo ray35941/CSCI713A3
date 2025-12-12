@@ -49,4 +49,19 @@ class StudentServiceTest {
         });
     }
     // - Utils methods
+     @Test
+    void checkName_shouldReturnTrueForValidName() {
+        assertTrue(StudentService.checkName("Alice"));
+    }
+
+    @Test
+    void checkName_shouldReturnFalseForEmptyString() {
+        assertFalse(StudentService.checkName(""));
+    }
+
+    @Test
+    void checkName_shouldReturnFalseForNull() {
+        assertFalse(StudentService.checkName(null));
+    }
+    
 }
